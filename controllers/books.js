@@ -9,6 +9,7 @@ const home = async (req, res) => {
 
 //2 - add a new book -- new.ejs
 const New = async (req, res) => {
+    
     res.render("books/new.ejs");
 };
 

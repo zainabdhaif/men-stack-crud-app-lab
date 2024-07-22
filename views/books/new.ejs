@@ -11,5 +11,65 @@
         <a href="/">home page</a></nav>
     <h1>Welcome to My Books Application!</h1>
     <h2>this is the create a new book page</h2>
+    <form action="/books" method="POST">
+        <!-- book name -->
+        <label for="title">Book title:
+            <input type="text" name="title" id="title" required maxLength="120"/>
+        </label>
+        <br>
+        <br>
+        <!-- author name -->      
+        <label for="author">Author name:
+            <input type="text" name="author" id="author" required maxLength="120"/>
+        </label>
+<br>
+<br>
+         <!-- rating -->      
+         <label for="rating">Rating (out of 5):
+            <input type="text" name="rating" id="rating" required maxLength="2"/>
+        </label>
+        <br>
+        <br>
+         <!-- year of publications -->      
+         <label for="yearPublished">Year published:
+            <input type="text" name="yearPublished" id="yearPublished" required maxLength="5"/>
+        </label>
+        <br>
+        <br>
+         <!-- no of pages -->      
+         <label for="noOfPages">Book length (no. of pages):
+            <input type="text" name="noOfPages" id="noOfPages" required maxLength="5"/>
+        </label>
+        <br>
+        <br>
+          <!-- publisher name -->  
+          <br>
+          <br>    
+          <label for="publisher">Name of publisher:
+            <select id="publisher" name="publisher">
+                <option value="" selected hidden>--select one--</option>
+                <option value="penguin">Penguin Random House</option>
+                <option value="harper-collins">Harper Collins</option>
+                <option value="simon">Simon & Schuster</option>
+                <option value="scholastic">Scholastic Corporation</option>
+                <option value="bloomsbury">Bloomsburry Publishing</option>
+                <option value="other">Other</option>
+              </select>
+        </label>
+        <br>
+        <br>
+
+            <!-- did you read the book yet -->  
+        <label for="readYet">Have you read the book?
+            <div>
+                <input type="radio" id="yes" name="readYet" value="yes"/>
+                <label for="yes">Yes</label>
+                <input type="radio" id="no" name="readYet" value="no"/>
+                <label for="no">No</label>
+            </div>
+        </label>
+        <button type="submit">Add new book</button>
+
+    </form>
 </body>
 </html>

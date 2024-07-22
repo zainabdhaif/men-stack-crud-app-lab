@@ -17,6 +17,7 @@ const booksCtrl = require("./controllers/books.js");
 
 //MIDDLEWARE
 app.use(morgan("dev"));
+app.use(express.urlencoded({ extended: false }));
 
 //ROUTES
 //landing page - just to check if server is working
@@ -27,8 +28,15 @@ app.listen(5010, () => {
 //1- home page - welcome to my books page  -- index.ejs
 app.get('/', booksCtrl.home);
 
-//2 - add a new book -- new.ejs
+//2.a - add a new book -- new.ejs
 app.get('/books/new', booksCtrl.New);
+
+//2.b - add a new book -- new.ejs actual update of data
+app.post('/books', async (req,res) => {
+    await Book.create(req.body);
+    //send the user to a new page 
+    res.redirect("/books");
+})
 
 //3- show all the books -- show.ejs,, if done early create a views filts based on a) if read or not, b)year of publication, c)rating, d)no of pages
 app.get('/books', booksCtrl.index);
