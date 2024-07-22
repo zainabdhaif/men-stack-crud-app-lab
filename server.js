@@ -32,16 +32,15 @@ app.get('/', booksCtrl.home);
 app.get('/books/new', booksCtrl.New);
 
 //2.b - add a new book -- new.ejs actual update of data
-app.post('/books', async (req,res) => {
-    await Book.create(req.body);
-    //send the user to a new page 
-    res.redirect("/books");
-})
+app.post('/books', booksCtrl.create);
 
 //3- show all the books -- show.ejs,, if done early create a views filts based on a) if read or not, b)year of publication, c)rating, d)no of pages
 app.get('/books', booksCtrl.index);
 
 //4- show a certain books details -- books/index.ejs
+app.get("/books/:bookId", booksCtrl.show);
+
+
 //5 - edit an existing book - edit.ejs
 //6- delete an existing book - a simple button that exists 
 
