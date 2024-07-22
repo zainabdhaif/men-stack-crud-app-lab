@@ -22,3 +22,10 @@ app.listen(5010, () => {
     console.log("Listening on port 5010");
   });
   
+//1- home page - welcome to my books page  -- index.ejs
+//2 - add a new book -- new.ejs
+//3- show all the books -- show.ejs,, if done early create a views filts based on a) if read or not, b)year of publication, c)rating, d)no of pages
+//4- show a certain books details -- books/index.ejs
+//5 - edit an existing book - edit.ejs
+//6- delete an existing book - a simple button that exists 
+
