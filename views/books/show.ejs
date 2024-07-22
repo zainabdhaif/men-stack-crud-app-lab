@@ -18,5 +18,14 @@
    <% }else{%>
         <p>You have yet to read this book!</p>
    <% }%>
+
+    <p>Is there any missing or incorrect data about the book above? modify book info   <a href="/books/<%= book._id %>/edit">here</a>.</p>
+
+
+   <form action="/books/<%=book._id%>?_method=DELETE" method="POST">
+    <button type="submit">Delete this book</button>
+  </form>
+
+
 </body>
 </html>
