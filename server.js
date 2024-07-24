@@ -40,7 +40,10 @@ app.get('/books', booksCtrl.index);
 //4- show a certain books details -- books/index.ejs
 app.get("/books/:bookId", booksCtrl.show);
 
+//5.a - edit an existing book - edit.ejs
+app.get('/books/:bookId/edit', booksCtrl.edit);
 
-//5 - edit an existing book - edit.ejs
+//5.b - actually update the edited data
+
 //6- delete an existing book - a simple button that exists 
 

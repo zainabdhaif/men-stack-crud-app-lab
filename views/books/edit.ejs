@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Books Application</title>
+    <title><%= book.title%></title>
 </head>
 <body>
     <nav><a href="/books/new">Add a new book</a>
@@ -11,5 +11,120 @@
         <a href="/">home page</a></nav>
     <h1>Welcome to My Books Application!</h1>
     <h2>this is the edit your book page</h2>
+    <form action="/books" method="POST">
+        <!-- book name -->
+        <label for="title">Book title:
+            <input type="text" name="title" id="title" value="<%= book.title %>" required maxLength="120"/>
+        </label>
+        <br>
+        <br>
+        <!-- author name -->      
+        <label for="author">Author name:
+            <input type="text" name="author" id="author" value="<%= book.author %>" required maxLength="120"/>
+        </label>
+<br>
+<br>
+         <!-- rating -->      
+         <label for="rating">Rating (out of 5):
+            <input type="text" name="rating" id="rating"  value="<%= book.rating %>"required maxLength="2"/>
+        </label>
+        <br>
+        <br>
+         <!-- year of publications -->      
+         <label for="yearPublished">Year published:
+            <input type="text" name="yearPublished" id="yearPublished" value="<%= book.yearPublished %>" required maxLength="5"/>
+        </label>
+        <br>
+        <br>
+         <!-- no of pages -->      
+         <label for="noOfPages">Book length (no. of pages):
+            <input type="text" name="noOfPages" id="noOfPages" value="<%= book.noOfPages %>" required maxLength="5"/>
+        </label>
+        <br>
+        <br>
+          <!-- publisher name -->  
+          <br>
+          <br>    
+          <label for="publisher">Name of publisher:
+
+        <%    if (book.publisher === "penguin"){%>
+                <select id="publisher" name="publisher">
+                    <option value="penguin" selected>Penguin Random House</option>
+                    <option value="harper-collins">Harper Collins</option>
+                    <option value="simon">Simon & Schuster</option>
+                    <option value="scholastic">Scholastic Corporation</option>
+                    <option value="bloomsbury">Bloomsburry Publishing</option>
+                    <option value="other">Other</option>
+                  </select>
+        <%   }else if (book.publisher === "harper-collins"){%>
+                <select id="publisher" name="publisher">
+                    <option value="penguin">Penguin Random House</option>
+                    <option value="harper-collins"  selected>Harper Collins</option>
+                    <option value="simon">Simon & Schuster</option>
+                    <option value="scholastic">Scholastic Corporation</option>
+                    <option value="bloomsbury">Bloomsburry Publishing</option>
+                    <option value="other">Other</option>
+                  </select>
+        <%     }else if (book.publisher === "simon"){%>
+                <select id="publisher" name="publisher">
+                    <option value="penguin">Penguin Random House</option>
+                    <option value="harper-collins"  selected>Harper Collins</option>
+                    <option value="simon" selected>Simon & Schuster</option>
+                    <option value="scholastic">Scholastic Corporation</option>
+                    <option value="bloomsbury">Bloomsburry Publishing</option>
+                    <option value="other">Other</option>
+                  </select>
+        <%   }else if (book.publisher === "scholastic"){%>
+                <select id="publisher" name="publisher">
+                    <option value="penguin">Penguin Random House</option>
+                    <option value="harper-collins"  selected>Harper Collins</option>
+                    <option value="simon">Simon & Schuster</option>
+                    <option value="scholastic" selected>Scholastic Corporation</option>
+                    <option value="bloomsbury">Bloomsburry Publishing</option>
+                    <option value="other">Other</option>
+                  </select>
+        <%    }else if (book.publisher === "bloomsbury"){%>
+                <select id="publisher" name="publisher">
+                    <option value="penguin">Penguin Random House</option>
+                    <option value="harper-collins"  selected>Harper Collins</option>
+                    <option value="simon">Simon & Schuster</option>
+                    <option value="scholastic">Scholastic Corporation</option>
+                    <option value="bloomsbury" selected>Bloomsburry Publishing</option>
+                    <option value="other">Other</option>
+                  </select>
+        <%    }else if (book.publisher === "other"){%>
+                <select id="publisher" name="publisher">
+                    <option value="penguin">Penguin Random House</option>
+                    <option value="harper-collins"  selected>Harper Collins</option>
+                    <option value="simon">Simon & Schuster</option>
+                    <option value="scholastic">Scholastic Corporation</option>
+                    <option value="bloomsbury">Bloomsburry Publishing</option>
+                    <option value="other" selected>Other</option>
+                  </select>
+        <%    }%>
+        </label>
+        <br>
+        <br>
+
+            <!-- did you read the book yet -->  
+        <label for="readYet">Have you read the book?
+            <div>
+              <%  if (book.readYet === true){%>
+                    <input type="radio" id="yes" name="readYet" value="yes" checked="checked"/>
+                    <label for="yes">Yes</label>
+                    <input type="radio" id="no" name="readYet" value="no"/>
+                    <label for="no">No</label>
+            <%    }else{%>
+                    <input type="radio" id="yes" name="readYet" value="yes"/>
+                    <label for="yes">Yes</label>
+                    <input type="radio" id="no" name="readYet" value="no" checked="checked"/>
+                    <label for="no">No</label>
+            <%    }%>
+
+            </div>
+        </label>
+        <button type="submit">Add new book</button>
+
+    </form>
 </body>
 </html>

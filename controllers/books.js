@@ -31,6 +31,12 @@ const show = async (req, res) => {
     res.render("books/show.ejs", {book});
 };
 
+//5.a - edit an existing book - edit.ejs
+const edit = async (req, res) => {
+    const foundBook = await Book.findById(req.params.bookId);
+    res.render("books/edit.ejs", {book: foundBook});
+};
+
 
 
 module.exports = {
@@ -38,5 +44,6 @@ module.exports = {
     home,
     New,
     create,
-    show
+    show,
+    edit
 }
