@@ -43,6 +43,12 @@ const update = async (req, res) => {
   res.redirect(`/books/${req.params.bookId}`);
 }
 
+//6- delete an existing book - a simple button that exists 
+const destroy = async (req, res) => {
+    await Book.findByIdAndDelete(req.params.bookId);
+    res.redirect("/books");
+};
+
 module.exports = {
     index,
     home,
@@ -50,5 +56,6 @@ module.exports = {
     create,
     show,
     edit,
-    update
+    update,
+    destroy
 }

@@ -48,4 +48,4 @@ app.get('/books/:bookId/edit', booksCtrl.edit);
 app.put('/books/:bookId', booksCtrl.update);
 
 //6- delete an existing book - a simple button that exists 
-
+app.delete('/books/:bookId', booksCtrl.destroy);
