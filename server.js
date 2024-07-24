@@ -18,6 +18,7 @@ const booksCtrl = require("./controllers/books.js");
 //MIDDLEWARE
 app.use(morgan("dev"));
 app.use(express.urlencoded({ extended: false }));
+app.use(methodOverride("_method")); // new
 
 //ROUTES
 //landing page - just to check if server is working
@@ -44,6 +45,7 @@ app.get("/books/:bookId", booksCtrl.show);
 app.get('/books/:bookId/edit', booksCtrl.edit);
 
 //5.b - actually update the edited data
+app.put('/books/:bookId', booksCtrl.update);
 
 //6- delete an existing book - a simple button that exists 
 

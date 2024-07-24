@@ -37,7 +37,11 @@ const edit = async (req, res) => {
     res.render("books/edit.ejs", {book: foundBook});
 };
 
-
+//5.b - actually update the edited data
+const update = async (req, res) => {
+  await Book.findByIdAndUpdate(req.params.bookId, req.body);
+  res.redirect(`/books/${req.params.bookId}`);
+}
 
 module.exports = {
     index,
@@ -45,5 +49,6 @@ module.exports = {
     New,
     create,
     show,
-    edit
+    edit,
+    update
 }
